@@ -5,21 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Speedrun Learning</title>
 
-  <link rel="stylesheet" href="style.css?v=1" />
+  <link rel="stylesheet" href="style.css?v=20" />
 
-  <!-- Handwriting Font -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap" rel="stylesheet">
+
   <!-- Typed.js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
 </head>
+
 <body>
 
-  <div class="page">
-    <span id="typed-title" class="title-text"></span>
+  <!-- 🔵 LOADING SCREEN OVERLAY -->
+  <div id="loading-screen">
+
+      <!-- Centered typed title -->
+      <div class="typed-wrapper">
+        <span id="typed-title" class="loading-title"></span>
+      </div>
+
+      <!-- 3D spinning loader -->
+      <div class="spinner-container"></div>
+
   </div>
 
-  <script src="script.js?v=1"></script>
+  <!-- 🔵 MAIN PAGE CONTENT (visible but covered initially) -->
+  <div id="main-content" class="page">
+      <h1>yo yo yo!</h1>
+  </div>
+
+  <script src="script.js?v=20"></script>
 </body>
 </html>

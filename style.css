@@ -1,22 +1,12 @@
 /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; }
 
-html, body {
-  width: 100%;
-  height: 100%;
-}
-
-/* Background notebook paper */
+/* === MAIN PAGE BACKGROUND === */
 .page {
   background-image: url("images/notebook.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
   width: 100vw;
   height: 100vh;
 
@@ -25,18 +15,84 @@ html, body {
   align-items: center;
 }
 
-/* Typed title */
-.title-text {
-  font-family: "Reenie Beanie", cursive;
-  font-size: 4.8rem;
-  line-height: 1.4;
-  color: #222;
-  white-space: pre-wrap;
-  text-align: center;
+/* === LOADING SCREEN (FULL OVERLAY) === */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background-image: url("images/notebook.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+  opacity: 1;
+  pointer-events: none; /* allow fade without white flash */
+  transition: opacity 0.5s ease-out;
 }
 
-/* Cursor style */
+/* Typed text styling */
+.loading-title {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 5.0rem;
+  color: #222;
+  margin-bottom: 40px;
+}
+
+.typed-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
 .typed-cursor {
-  font-family: 'IBM Plex Mono', cursive; /* cursor font */
-  font-size: 3.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 3.8rem;
+  color: #222;
+  font-weight: 300;
+}
+
+/* === SPINNER === */
+.spinner-container {
+  position: relative;
+  margin-top: 15px;
+  width: 20vw;
+  height: 20vw;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(45deg) rotateX(45deg);
+}
+
+.circle {
+  position: absolute;
+  border: 2px solid #143447; /* elegant dark blue */
+  border-radius: 50%;
+  animation: spin 12s infinite linear;
+}
+
+.circle:nth-child(even) {
+  border-style: dashed;
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(360deg); }
+}
+
+/* === FADE OUT (NO WHITE FLASH) === */
+#loading-screen.fade-out {
+  opacity: 0;
+}
+
+#loading-screen.fade-out-complete {
+  display: none;
+}
+
+/* MAIN CONTENT TEXT */
+.page h1 {
+  font-family: "Reenie Beanie";
+  font-size: 4rem;
+  color: #222;
 }
